@@ -1,0 +1,37 @@
+@media (max-width:320px) {
+    
+    .container {
+        display:grid;
+        grid-template-areas: 
+        'hd'
+        'sd'
+        'main'
+        'ft'
+        ;
+        grid-template-rows: 45vh auto auto 20vh;
+    }
+    
+    .header {
+        grid-area: hd;
+        background-image: url(../Images/banner.jpg);
+        height:32vh;  
+    }
+    
+    .blog {
+        display:grid;
+        grid-area:main;
+        grid-template-columns: 200px;
+        grid-auto-rows: minmax(200px, auto);
+        grid-gap:15px;
+        justify-content: center;
+        margin-top: 30px;   
+    }
+    
+    .blog_post {
+        display:flex;
+        justify-content: center;
+        width: 100%;
+        background-color: #ffffff;   
+    }
+    
+    }
