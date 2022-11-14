@@ -23,10 +23,18 @@ const postData = async (url = '', data = {}) => {
 
 }
 
-
+const newTest = async (route) => {
+    const res = await fetch(route);
+    try {
+        const data = await res.text();
+        console.log(data)
+        return data;
+    } catch(error) {
+        console.log("error", error);
+    }
+}
 
 document.getElementById('generate').addEventListener('click', callBack);
-
 
 
 function callBack(e) {
@@ -44,14 +52,16 @@ function callBack(e) {
         )
 }
 
+
+//this updates the UI with data from API
 const updateUI = async () => {
-    const request = await fetch('/all');
+    const request = await fetch('/all'); // this receives API data from get route
     try {
         const allData = await request.json();
         console.log(allData);
-        document.getElementById('temp').innerHTML = "The Temperature: " + allData[0].temperature +"°F";
+        document.getElementById('temp').innerHTML = "The Temperature: " + allData[0].temperature + "°F";
         document.getElementById('date').innerHTML = "Date: " + allData[0].date;
-        document.getElementById('content').innerHTML = "Feelings of the day: " + '"' +  allData[0].userResponse + '"';
+        document.getElementById('content').innerHTML = "Feelings of the day: " + '"' + allData[0].userResponse + '"';
     }
     catch (error) {
         console.log('error', error);
@@ -71,8 +81,6 @@ const getWeather = async (baseURL, zip, key) => {
         console.log('error', error);
     }
 }
-
-
 
 
 // Create a new date instance dynamically with JS
