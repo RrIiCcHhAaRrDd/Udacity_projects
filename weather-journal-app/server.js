@@ -1,56 +1,87 @@
-// Setup empty JS object to act as endpoint for all routes
-projectData = {};
-
-// Require Express to run server and routes
-const express = require('express');
+/* Global Variables */
+const baseURL = 'https://api.openweathermap.org/data/2.5/weather?zip='
+const apiKey = '&APPID=13614da2240ac51a3e2fa6ee38fbb520&units=imperial';
 
 
-// Start up an instance of app
-const app = express();
-
-/* Middleware*/
-//Here we are configuring express to use body-parser as middle-ware.
-var bodyParser = require('body-parser')
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
-// Cors for cross origin allowance
-const cors = require('cors');
-app.use(cors());
-
-// Initialize the main project folder
-app.use(express.static('website'));
-
-
-// Setup Server
-const port = 8000;
-const server = app.listen(port, listening);
-function listening() {
-    console.log('server running');
-    console.log(`running on localhost: ${port}`);
-}
-
-//GET route
-app.get("/all", function (req, res) {
-    res.send(projectData);
-    console.log(projectData);
-})
-
-//POST route 
-
-app.post('/', addJournalEntry);
-
-function addJournalEntry(req, res) {
-    console.log(req.body)
-    
-    newEntry = {
-        temperature: req.body.temperature,
-        date: req.body.date,
-        userResponse: req.body.userResponse
+//POST request
+const postData = async (url = '', data = {}) => {
+    const response = await fetch(url, {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    });
+    try {
+        const newData = await response.json();
+        console.log(newData);
+        return newData;
+    } catch (error) {
+        console.log('error', error);
     }
-    
-    
-    projectData.push(newEntry)
-    res.send(projectData)
-    console.log(projectData)
+
 }
+
+const newTest = async (route) => {
+    const res = await fetch(route);
+    try {
+        const data = await res.text();
+        console.log(data)
+        return data;
+    } catch(error) {
+        console.log("error", error);
+    }
+}
+
+document.getElementById('generate').addEventListener('click', callBack);
+
+
+function callBack(e) {
+    const userResponse = document.getElementById('feelings').value;
+    const newZip = document.getElementById('zip').value;
+    // request to API
+    getWeather(baseURL, newZip, apiKey)
+        //POST data
+        .then(function (data) {
+            console.log(data)
+            postData('', { temperature: data.main.temp, date: newDate, userResponse: userResponse })
+        })
+        .then(
+            updateUI()
+        )
+}
+
+
+//this updates the UI with data from API
+const updateUI = async () => {
+    const request = await fetch('/all'); // this receives API data from get route
+    try {
+        const allData = await request.json();
+        console.log(allData);
+        document.getElementById('temp').innerHTML = "The Temperature: " + allData[0].temperature + "°F";
+        document.getElementById('date').innerHTML = "Date: " + allData[0].date;
+        document.getElementById('content').innerHTML = "Feelings of the day: " + '"' + allData[0].userResponse + '"';
+    }
+    catch (error) {
+        console.log('error', error);
+    }
+}
+
+// Here is a GET request to the openweather API
+const getWeather = async (baseURL, zip, key) => {
+    const res = await fetch(baseURL + zip + key)
+    try {
+        const data = await res.json();
+        console.log(data);
+        return data;
+    }
+    catch (error) {
+        console.log('error', error);
+    }
+}
+
+
+// Create a new date instance dynamically with JS
+let d = new Date();
+let newDate = d.getMonth() + '.' + d.getDate() + '.' + d.getFullYear();
