@@ -1,0 +1,327 @@
+#backButton {
+    height: 90vh;
+    width: 70pt;
+    background-color: transparent;
+    border: none;
+    font-size: 20pt;
+    align-self: start;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.553);
+    }
+}
+
+[id='page two'] {
+    display: flex;
+    justify-content: unset;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+#tripResults {
+
+    border: solid 6pt orange;
+    width: 80vw;
+    padding: 20pt;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20pt;
+    justify-content: center;
+}
+
+#innerTripResults {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 20% 20% 20% 20% 20%;
+    justify-content: space-between;
+}
+
+#destinationImage {
+
+    img {
+        width: 600px;
+        height: 400px;
+
+    }
+}
+
+.subtitle {
+    font-family: monospace;
+    color: yellow;
+}
+
+#resultsContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: 100%;
+    align-items: center;
+    gap: 20pt;
+    margin-left: 25pt;
+    margin-top: 30pt;
+
+}
+
+#destinationName {
+    grid-column-start: 4;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 1;
+
+}
+
+#tripDate {
+    grid-column-start: 4;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+
+
+
+#weatherGrid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: 33% 33% 33%;
+    width: 400pt;
+    height: 120pt;
+    justify-items: center;
+    position: relative;
+
+
+    h2 {
+        display: inline-grid;
+        font-family: monospace;
+        color: orange;
+        width: auto;
+    }
+
+    h3 {
+        width: 100%;
+        text-align: center;
+    }
+
+    #min {
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 3;
+        grid-row-end: 3;
+    }
+
+    #max {
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 2;
+        grid-row-end: 2;
+    }
+
+    #forecast_0 {
+        grid-column-start: 2;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 1;
+        border-bottom: 1pt solid white;
+    }
+
+    #forecast_1 {
+        grid-column-start: 2;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 2;
+    }
+
+    #forecast_2 {
+        grid-column-start: 2;
+        grid-column-end: 2;
+        grid-row-start: 3;
+        grid-row-end: 3;
+    }
+
+    #forecast_3 {
+        grid-column-start: 3;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 1;
+        border-bottom: 1pt solid white;
+    }
+
+    #forecast_4 {
+        grid-column-start: 3;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 2;
+    }
+
+    #forecast_5 {
+        grid-column-start: 3;
+        grid-column-end: 3;
+        grid-row-start: 3;
+        grid-row-end: 3;
+    }
+
+    #forecast_6 {
+        grid-column-start: 4;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 1;
+        border-bottom: 1pt solid white;
+    }
+
+    #forecast_7 {
+        grid-column-start: 4;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: 2;
+    }
+
+    #forecast_8 {
+        grid-column-start: 4;
+        grid-column-end: 4;
+        grid-row-start: 3;
+        grid-row-end: 3;
+    }
+
+    #forecast_9 {
+        grid-column-start: 5;
+        grid-column-end: 5;
+        grid-row-start: 1;
+        grid-row-end: 1;
+        border-bottom: 1pt solid white;
+    }
+
+    #forecast_10 {
+        grid-column-start: 5;
+        grid-column-end: 5;
+        grid-row-start: 2;
+        grid-row-end: 2;
+    }
+
+    #forecast_11 {
+        grid-column-start: 5;
+        grid-column-end: 5;
+        grid-row-start: 3;
+        grid-row-end: 3;
+    }
+
+    #forecast_12 {
+        grid-column-start: 6;
+        grid-column-end: 6;
+        grid-row-start: 1;
+        grid-row-end: 1;
+        border-bottom: 1pt solid white;
+    }
+
+    #forecast_13 {
+        grid-column-start: 6;
+        grid-column-end: 6;
+        grid-row-start: 2;
+        grid-row-end: 2;
+    }
+
+    #forecast_14 {
+        grid-column-start: 6;
+        grid-column-end: 6;
+        grid-row-start: 3;
+        grid-row-end: 3;
+    }
+
+    #forecast_15 {
+        grid-column-start: 7;
+        grid-column-end: 7;
+        grid-row-start: 1;
+        grid-row-end: 1;
+        border-bottom: 1pt solid white;
+    }
+
+    #forecast_16 {
+        grid-column-start: 7;
+        grid-column-end: 7;
+        grid-row-start: 2;
+        grid-row-end: 2;
+    }
+
+    #forecast_17 {
+        grid-column-start: 7;
+        grid-column-end: 7;
+        grid-row-start: 3;
+        grid-row-end: 3;
+    }
+
+    #forecast_18 {
+        grid-column-start: 8;
+        grid-column-end: 8;
+        grid-row-start: 1;
+        grid-row-end: 1;
+        border-bottom: 1pt solid white;
+    }
+
+    #forecast_19 {
+        grid-column-start: 8;
+        grid-column-end: 8;
+        grid-row-start: 2;
+        grid-row-end: 2;
+    }
+
+    #forecast_20 {
+        grid-column-start: 8;
+        grid-column-end: 8;
+        grid-row-start: 3;
+        grid-row-end: 3;
+    }
+
+
+}
+
+#forecastSub {
+    font-style: italic;
+    position: relative;
+    top: -30pt;
+}
+
+
+#hotel {
+    width: 100%;
+    border-top: 6pt solid orange;
+    margin-top: 20pt;
+
+}
+
+.addInfo {
+    padding: 20pt;
+    font-size: 2em;
+    display: inline-block;
+    color: yellow;
+    font-family: monospace;
+    width: 100%;
+    box-sizing: border-box;
+
+    ul {
+        list-style-type: none;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    li {
+        padding-top: 10pt;
+        display: flex;
+        width: 100%;
+        box-sizing: border-box;
+        justify-content: space-between;
+    }
+
+    .addInfoLabel {
+        width: 190pt;
+        display: inline-block;
+    }
+
+    .addInfoText {
+        border: none;
+        border-bottom: 4pt solid orange;
+        background-color: transparent;
+        width: 300pt;
+        font-size:1em;
+    }
+
+}

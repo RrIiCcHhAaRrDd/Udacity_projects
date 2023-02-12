@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<body>
+    <div id="container">
+
+        <div class="pages">
+
+            <div id="page one" class="page">
+                <div class="Title">
+                    <h1>Travel Planner</h1>
+                </div>
+                <div id="searchDiv">
+                    <form id="searchForm">
+                        <input type="text" name="searchDestination" id="searchDestination" class="searchInput">
+                        <input type="text" name="startDate" id="startDate" class="searchInput date"
+                            placeholder="Start Date">
+                        <input type="text" name="endDate" id="endDate" class="searchInput date" placeholder="End Date">
+                        <input type="submit" name="searchTrip" id="searchTrip" value="Search" class="button trip"
+                            onclick="return Client.formSubmit(event)" onsubmit="return Client.formSubmit(event)">
+                    </form>
+                </div>
+
+                <div id="map">
+                </div>
+
+            </div>
+
+            <div id="page two" class="page">
+                <div class="Title">
+                    <h1>Travel Planner</h1>
+                </div>
+                <button onclick="Client.slide('back'), Client.backButtonfn(), Client.removeWeatherfn()" id="backButton"
+                    class="subtitle">Back</button>
+                <div id="tripResults">
+
+                    <div id="destinationImage">
+                        <img id="destImage">
+
+                    </div>
+
+                    <div id="resultsContainer">
+                        <h1 id="destinationName" class="subtitle"></h1>
+                        <h2 id="tripDate" class="subtitle"></h2>
+
+                        <div id="HotelFlightDiv"></div>
+                        <h1 class="subtitle">Weather Forecast</h1>
+                        <div id="weatherGrid" class="subtitle">
+                        </div>
+                        <h3 id="forecastSub" class="subtitle">*forecast based on previous years data</h3>
+
+
+                        <button onclick="Client.slide('back'), Client.map(), Client.removeWeatherfn()"
+                            class="button trip" id="addTrip">Add Trip</button>
+
+                    </div>
+                    <div id="hotel">
+
+                        <ul>
+                            <li>
+                                <form class="addInfo">
+                                    <label class="subtitle addInfoLabel">Add Hotel Info</label>
+                                    <input type="text" class="subtitle addInfoText" name="hotelInfo">
+                                    <input type="submit" class="button" onclick="return Client.addInfo(event)"
+                                    onsubmit="return Client.addInfo(event)">
+                                </form>
+
+                            </li>
+                            <li>
+                                <form class="addInfo"> 
+                                <label class="subtitle addInfoLabel">Add Flight Info</label>
+                                <input type="text" class="subtitle addInfoText" name="flightInfo">
+                                <input type="submit" class="button" onclick="return Client.addInfo(event)"
+                                    onsubmit="return Client.addInfo(event)">
+                                </form>
+                            </li>
+                        </ul>
+
+                        </form>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+
+<script>
+    // Check that service workers are supported
+    if ('serviceWorker' in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js');
+        });
+    }
+   </script>
+
+</html>
