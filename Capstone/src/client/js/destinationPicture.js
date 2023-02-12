@@ -3,7 +3,7 @@ const destinationPic = async (destination, country, startDate, endDate) => {
     const res2 = await fetch('/keys')
     const data2 = await res2.json()
 
-    const pixabayKey = data2.PIXABAY_KEY
+    const pixabayKey = "32638789-2edb2b57eb892261c39dcad49"
 
     const res3 = await fetch(`https://pixabay.com/api/?key=${pixabayKey}&q=${destination}&category=places`)
     

@@ -5,7 +5,7 @@ const formSubmit = async (event) => {
     const res1 = await fetch(url1)
     const data1 = await res1.json()
 
-    const geonamesUsername = data1.GEONAME_USER
+    const geonamesUsername = "rriicchhaarrdd"
 
     const form = document.querySelector('form')
     const formData = new FormData(form);
