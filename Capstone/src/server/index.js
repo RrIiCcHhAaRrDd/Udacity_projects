@@ -18,9 +18,11 @@ const path = require('path')
 
 app.use(express.static('dist'))
 
+const port = 8081
+
 if (process.env.NODE_ENV !== 'test') {
     app.listen(port);
-    //console.log(`Example app listening on port ${port}!`)
+    console.log(`Example app listening on port ${port}!`)
 }
 
 app.get('/', function (req, res) {
