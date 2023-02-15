@@ -2,7 +2,7 @@ const blankMapfn = async () => {
 
     const data = await fetch('/keys')
     const res1 = await data.json()
-    const mapBoxKey = "res1.MAP_API_KEY"
+    const mapBoxKey = res1.MAP_API_KEY
 
     const img = document.createElement('img');
     img.setAttribute('id', "mapImg")

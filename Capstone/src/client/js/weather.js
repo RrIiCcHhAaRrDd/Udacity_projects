@@ -5,7 +5,7 @@ const weather = async (latitude, longitude, startDate, endDate) => {
     startDate = startDate.slice(4, startDate.length)
     endDate = endDate.slice(4, endDate.length)
 
-    const weatherAPI = "a7627e43fb114497a78d9703f0a4c438"
+    const weatherAPI = data2.WEATHERBIT_API
     const res3 = await fetch(`https://api.weatherbit.io/v2.0/history/daily?&lat=${latitude}&lon=${longitude}&start_date=2022${startDate}&end_date=2022${endDate}&days=7&key=${weatherAPI}`)
 
     try {

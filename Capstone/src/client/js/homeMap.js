@@ -5,7 +5,7 @@ const map = async () => {
 
     const res2 = await fetch('/getObject')
     const data2 = await res2.json()
-    const mapBoxKey = "data1.MAP_API_KEY"
+    const mapBoxKey = data1.MAP_API_KEY
 
     function latLonFunction() {
         let string ='';
